@@ -1196,7 +1196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7556a7d1d0f1e14bb94e88c100a9369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientPrefab: {fileID: 3332775405046957598, guid: 293780bc72f39004cab1f27fb4476039, type: 3}
+  ingredientPrefab:
+  - {fileID: 3332775405046957598, guid: 293780bc72f39004cab1f27fb4476039, type: 3}
+  - {fileID: 3332775405046957598, guid: 0cf0de03f985a2049ad4aa09c7f9892b, type: 3}
   spawnPoints:
   - {fileID: 934229249}
   - {fileID: 1930265583}
@@ -3505,7 +3507,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492649553}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b616ace94fed6c64db86b355990defad, type: 3}
   m_Name: 
@@ -3513,6 +3515,7 @@ MonoBehaviour:
   bubbleTypes:
   - {fileID: 1448703899014567415, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
   - {fileID: 5052708630860974133, guid: ae615ae346e915e4db2070fd3aa8538c, type: 3}
+  pool: {fileID: 0}
   spawnSize: 0.17
   spawnTime: 2
 --- !u!1 &1570865145
