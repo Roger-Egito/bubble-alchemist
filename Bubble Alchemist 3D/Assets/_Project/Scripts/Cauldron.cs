@@ -8,10 +8,12 @@ public class Cauldron : MonoBehaviour
     [SerializeField] private UnityEvent OnWrongItem;
     [SerializeField] private Image itemImage;
     public IngredientController currentItem;
+    public GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameManager = GameObject.FindAnyObjectByType<GameManager>();
         GetNextItem();
     }
 
@@ -37,7 +39,7 @@ public class Cauldron : MonoBehaviour
 
     public void CorrectItem()
     {
-        OnCorrectItem?.Invoke(5);
+        gameManager.IncreaseScore(5);
         GetNextItem();
     }
 

@@ -5,6 +5,6 @@ public class SceneChanger : MonoBehaviour
 {
     public void RestartScene()
     {
-        SceneManager.LoadScene("GameLayout6");
+        SceneManager.LoadScene("GameLayout6 1");
     }
 }

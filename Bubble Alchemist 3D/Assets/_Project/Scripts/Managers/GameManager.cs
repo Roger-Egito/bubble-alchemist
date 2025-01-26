@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int score = 0;
     [SerializeField] private int scoreIncrease = 5;
-    [SerializeField] private int scoreThreshold = 20;
+    [SerializeField] private int scoreThreshold = 10;
 
     [SerializeField] private UnityEvent<int> OnScoreChanged;
     [SerializeField] private UnityEvent<int> OnDifficulyChanged;
