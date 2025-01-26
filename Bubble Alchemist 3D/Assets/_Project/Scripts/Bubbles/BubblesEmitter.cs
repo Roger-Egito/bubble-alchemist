@@ -30,6 +30,11 @@ public class BubblesEmitter : MonoBehaviour
         currentTime += Time.deltaTime;
     }
 
+    public void UpdateDifficultu(int newDiff)
+    {
+        spawnTime /= newDiff;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position + Vector3.left * spawnSize, transform.position + Vector3.right * spawnSize);
