@@ -28,7 +28,6 @@ public class Cauldron : MonoBehaviour
         }
 
         WrongItem();
-        Destroy(item.gameObject);
     }
 
     private void GetNextItem()
