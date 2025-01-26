@@ -84,5 +84,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 5
   velocityRandomScale: {x: 0.3, y: 0.5}
-  rarityLevel: 0.5
+  rarityLevel: 0.718
   fireBall: {fileID: 8209529211773535864, guid: 0e0395021b5c951499059ee8c709f7b6, type: 3}
