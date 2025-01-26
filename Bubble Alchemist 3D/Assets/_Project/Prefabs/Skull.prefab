@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3373930679708709963}
   - component: {fileID: 8283890751467642548}
   m_Layer: 3
-  m_Name: Ingredient
+  m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a876b6203f98bc44a7b68b73050cdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 
+  type: skull
 --- !u!1 &3914767545400111447
 GameObject:
   m_ObjectHideFlags: 0

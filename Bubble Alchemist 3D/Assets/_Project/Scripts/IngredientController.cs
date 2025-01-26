@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class IngredientController : MonoBehaviour
 {
-    [SerializeField] private string type;
-    void Start()
+    public Sprite sprite;
+
+    private void Awake()
     {
-        type = IngredientManager.instance.GetRandomIngredientType();       
+        sprite = GetComponentInChildren<SpriteRenderer>().sprite;
+
+        Debug.Log(sprite);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool CompareItems(IngredientController other)
     {
-        
+        if(sprite == other.sprite) return true;
+        return false;
     }
 }

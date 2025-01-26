@@ -5,18 +5,12 @@ public class IngredientManager : MonoBehaviour
 {
     public static IngredientManager instance { get; private set; }
 
-    [SerializeField] private GameObject ingredientPrefab;
-    [SerializeField] private List<Transform> spawnPoints;
-    [SerializeField] private List<string> ingredientTypes;
+    [SerializeField] private GameObject[] ingredientPrefab;
+    [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private List<GameObject> spawnedIngredients;
     [Range(0f, 10f)]
     [SerializeField] private float spawnCooldown = 5f;
     private float timeStamp;
-
-    public string GetRandomIngredientType()
-    {
-        return ingredientTypes[UnityEngine.Random.Range(0, ingredientTypes.Count)]; ;
-    }
 
     private void Awake()
     {
@@ -38,20 +32,27 @@ public class IngredientManager : MonoBehaviour
         }
     }
 
+    public IngredientController GetRandomIngredient()
+    {
+        int n = Random.Range(0, spawnedIngredients.Count);
+        return spawnedIngredients[n].GetComponent<IngredientController>();
+    }
+
     private void SpawnIngredientsAtAllSpawns()
     {
-        for (int i = 0; i < spawnPoints.Count; i++) SpawnIngredient(spawnPoints[i].position);
+        for (int i = 0; i < spawnPoints.Length; i++) SpawnIngredient(spawnPoints[i].position);
     }
 
     public void SpawnIngredientAtRandomSpawn()
     {
-        Vector3 spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)].position;
+        Vector3 spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
         SpawnIngredient(spawnPoint);
     }
 
     private void SpawnIngredient(Vector3 position)
     {
-        GameObject ingredient = Instantiate(ingredientPrefab, position, ingredientPrefab.transform.rotation);
+        GameObject i = ingredientPrefab[Random.Range(0, ingredientPrefab.Length)];
+        GameObject ingredient = Instantiate(i, position, Quaternion.identity); 
         spawnedIngredients.Add(ingredient);
     }
 }
