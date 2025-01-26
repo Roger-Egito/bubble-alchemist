@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     #region Move Left / Right
 
     private Vector2 moveVelocity;
-    private bool isFacingRight;
+    public bool isFacingRight;
 
     private RaycastHit2D groundHit;
     private RaycastHit2D headHit;

@@ -9,6 +9,8 @@ public class PlayerMovementStats : MonoBehaviour
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance { get; private set; }
+
     [Header("References")]
     [SerializeField] private Collider2D feetCollision;
     [SerializeField] private Collider2D bodyCollision;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Grounded/Collision Checks")]
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask ingredientLayer;
     [SerializeField] private float groundDetectionRayLength = 0.02f;
     [SerializeField] private float headDetectionRayLength = 0.02f;
     [SerializeField] private bool showIsGroundedBox = true;
@@ -67,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     #region Move Left / Right
 
     private Vector2 moveVelocity;
-    private bool isFacingRight;
+    public bool isFacingRight;
 
     private RaycastHit2D groundHit;
     private RaycastHit2D headHit;
@@ -76,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this) Destroy(this); else instance = this;
         isFacingRight = true;
     }
 
@@ -151,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 boxCastOrigin = new Vector2(feetCollision.bounds.center.x, feetCollision.bounds.min.y);
         Vector2 boxCastSize = new Vector2(feetCollision.bounds.size.x, groundDetectionRayLength);
 
-        groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, groundDetectionRayLength, groundLayer);
+        groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, groundDetectionRayLength, (groundLayer + ingredientLayer));
 
         if (groundHit.collider != null)
         {

@@ -11,11 +11,17 @@ public class IngredientManager : MonoBehaviour
     [SerializeField] private List<GameObject> spawnedIngredients;
     [Range(0f, 10f)]
     [SerializeField] private float spawnCooldown = 5f;
+    [SerializeField] private int spawnLimit = 30;
     private float timeStamp;
 
     public string GetRandomIngredientType()
     {
         return ingredientTypes[UnityEngine.Random.Range(0, ingredientTypes.Count)]; ;
+    }
+
+    public List<GameObject> GetSpawnedIngredients()
+    {
+        return spawnedIngredients;
     }
 
     private void Awake()
@@ -26,12 +32,13 @@ public class IngredientManager : MonoBehaviour
     
     void Start()
     {
-        SpawnIngredientsAtAllSpawns();
+        //SpawnIngredientsAtAllSpawns();
+        SpawnIngredientAtRandomSpawn(5);
     }
 
     void Update()
     {
-        if (timeStamp <= Time.time)
+        if (timeStamp <= Time.time && spawnedIngredients.Count < spawnLimit)
         {
             SpawnIngredientAtRandomSpawn();
             timeStamp = Time.time + spawnCooldown;
@@ -43,10 +50,13 @@ public class IngredientManager : MonoBehaviour
         for (int i = 0; i < spawnPoints.Count; i++) SpawnIngredient(spawnPoints[i].position);
     }
 
-    public void SpawnIngredientAtRandomSpawn()
+    public void SpawnIngredientAtRandomSpawn(int amount=1)
     {
-        Vector3 spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)].position;
-        SpawnIngredient(spawnPoint);
+        for (int i=0; i < amount; i++)
+        {
+            Vector3 spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)].position;
+            SpawnIngredient(spawnPoint);
+        }
     }
 
     private void SpawnIngredient(Vector3 position)
