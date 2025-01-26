@@ -45,6 +45,12 @@ public class IngredientManager : MonoBehaviour
         }
     }
 
+    public IngredientController GetRandomIngredient()
+    {
+        int n = Random.Range(0, spawnedIngredients.Count);
+        return spawnedIngredients[n].GetComponent<IngredientController>();
+    }
+
     private void SpawnIngredientsAtAllSpawns()
     {
         for (int i = 0; i < spawnPoints.Count; i++) SpawnIngredient(spawnPoints[i].position);

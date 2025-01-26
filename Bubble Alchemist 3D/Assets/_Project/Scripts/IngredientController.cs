@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class IngredientController : MonoBehaviour
 {
-    [SerializeField] private string type;
+    public Sprite sprite;
     [SerializeField] private GameObject downArrow;
     [SerializeField] private GameObject upArrow;
 
+    private void Awake()
+    {
+        sprite = GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
     void Start()
     {
-        type = IngredientManager.instance.GetRandomIngredientType();       
+        sprite = GetComponentInChildren<SpriteRenderer>().sprite;
     }
 
     public void ShowPickUpGUI()
@@ -32,9 +37,9 @@ public class IngredientController : MonoBehaviour
         upArrow.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool CompareItems(IngredientController other)
     {
-        
+        if(sprite == other.sprite) return true;
+        return false;
     }
 }
