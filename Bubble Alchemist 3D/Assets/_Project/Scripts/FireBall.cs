@@ -24,10 +24,16 @@ public class FireBall : MonoBehaviour
         transform.position += (lastFamiliarPosition.position - transform.position).normalized * velocity * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Familiar"))
         {
+            Debug.Log(collision.tag);
+            if (collision.TryGetComponent<HealthHandler>(out var h))
+            {
+                h.TakeDamage();
+            }
+
             Destroy(gameObject);
         }
     }
