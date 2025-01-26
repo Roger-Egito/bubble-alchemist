@@ -5,7 +5,7 @@ public class IngredientManager : MonoBehaviour
 {
     public static IngredientManager instance { get; private set; }
 
-    [SerializeField] private GameObject ingredientPrefab;
+    [SerializeField] private GameObject[] ingredientPrefab;
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private List<string> ingredientTypes;
     [SerializeField] private List<GameObject> spawnedIngredients;
@@ -45,6 +45,12 @@ public class IngredientManager : MonoBehaviour
         }
     }
 
+    public IngredientController GetRandomIngredient()
+    {
+        int n = Random.Range(0, spawnedIngredients.Count);
+        return spawnedIngredients[n].GetComponent<IngredientController>();
+    }
+
     private void SpawnIngredientsAtAllSpawns()
     {
         for (int i = 0; i < spawnPoints.Count; i++) SpawnIngredient(spawnPoints[i].position);
@@ -61,7 +67,8 @@ public class IngredientManager : MonoBehaviour
 
     private void SpawnIngredient(Vector3 position)
     {
-        GameObject ingredient = Instantiate(ingredientPrefab, position, ingredientPrefab.transform.rotation);
+        var i = ingredientPrefab[Random.Range(0, ingredientPrefab.Length)];
+        GameObject ingredient = Instantiate(i, position, i.transform.rotation);
         spawnedIngredients.Add(ingredient);
     }
 }

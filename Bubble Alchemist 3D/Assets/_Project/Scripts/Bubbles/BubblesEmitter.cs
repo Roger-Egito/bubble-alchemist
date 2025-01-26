@@ -5,6 +5,7 @@ using UnityEngine;
 public class BubblesEmitter : MonoBehaviour
 {
     [SerializeField] private GameObject[] bubbleTypes;
+    [SerializeField] private BubblePool pool;
 
     [SerializeField] private float spawnSize;
 
@@ -12,12 +13,18 @@ public class BubblesEmitter : MonoBehaviour
 
     private float currentTime = 0f;
 
+    private void Start()
+    {
+        pool = GameObject.FindAnyObjectByType<BubblePool>();
+    }
 
     void Update()
     {
         if(currentTime >= spawnTime)
         {
-            Instantiate(bubbleTypes[Random.Range(0, bubbleTypes.Length)], transform.position + Vector3.right * Random.Range(-spawnSize, spawnSize), Quaternion.identity);
+            var b = pool.GetRandomBubble();
+            if(b != null)
+                b.transform.position = transform.position + Vector3.right * Random.Range(-spawnSize, spawnSize);
             currentTime = 0;
         }
         currentTime += Time.deltaTime;

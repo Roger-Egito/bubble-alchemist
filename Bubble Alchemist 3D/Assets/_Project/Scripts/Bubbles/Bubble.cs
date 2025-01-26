@@ -9,14 +9,14 @@ public class Bubble : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float rarityLevel = 0.5f;
 
-    public float RarityLevel { get; private set; }
+    public float RarityLevel { get { return rarityLevel; }}
    
     private float velocity = 1f;
 
     public float Velocity { get; set; }
 
     private float currentTime = 0f;
-    void Start()
+    public virtual void Start()
     {
         velocity = Random.Range(velocityRandomScale.x, velocityRandomScale.y);
     }
@@ -25,7 +25,8 @@ public class Bubble : MonoBehaviour
     {
         if (currentTime > lifeTime)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            currentTime = 0f;
         }
         currentTime += Time.deltaTime;
         transform.position += Vector3.up * velocity * Time.deltaTime;
@@ -33,6 +34,6 @@ public class Bubble : MonoBehaviour
 
     public virtual void Pop()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

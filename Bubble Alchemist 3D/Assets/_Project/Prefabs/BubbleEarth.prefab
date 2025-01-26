@@ -15,10 +15,10 @@ PrefabInstance:
     - target: {fileID: 1088227294638715938, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b2575b0bc7c11234a9af7e310ec2b84d, type: 2}
+      objectReference: {fileID: 2100000, guid: 347855cbbe996b64d95a2e11c127e09c, type: 2}
     - target: {fileID: 1448703899014567415, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
       propertyPath: m_Name
-      value: BubbleFire
+      value: BubbleEarth
       objectReference: {fileID: 0}
     - target: {fileID: 2256589466184240973, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,14 +67,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1448703899014567415, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5089548621044192515}
+      addedObject: {fileID: -6918007045800278488}
   m_SourcePrefab: {fileID: 100100000, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
 --- !u!1 &5052708630860974133 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1448703899014567415, guid: 20e5c4d2a09c8874bbb0938d51972e66, type: 3}
   m_PrefabInstance: {fileID: 5909856582433791426}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5089548621044192515
+--- !u!114 &-6918007045800278488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,10 +83,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5052708630860974133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7105c705545fb7e43a6dac3029b42e14, type: 3}
+  m_Script: {fileID: 11500000, guid: 568eca55681c345469470406760d838f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
   velocityRandomScale: {x: 0.3, y: 0.5}
-  rarityLevel: 0.718
-  fireBall: {fileID: 8209529211773535864, guid: 0e0395021b5c951499059ee8c709f7b6, type: 3}
+  rarityLevel: 0.594
+  stoneSpawner: {fileID: 7961042540732339068, guid: 3fc2cc30966f3da40a1e136e23ec1133, type: 3}
