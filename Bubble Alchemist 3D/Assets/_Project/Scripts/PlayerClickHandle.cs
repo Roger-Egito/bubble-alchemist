@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
-public class PlayerC : MonoBehaviour
+public class PlayerClickHandle : MonoBehaviour
 {
     public void PopBubble(InputAction.CallbackContext context)
     {
