@@ -15,7 +15,7 @@ public class PickUpController : MonoBehaviour
     [SerializeField] private GameObject oldClosestIngredient;
     [SerializeField] private GameObject pickedUpObject;
     [SerializeField] private GameObject droppedObject;
-    [SerializeField] private float pickUpItemFloatingDistance = 0.1f;
+    [SerializeField] private float pickUpItemFloatingDistance = 0.14f;
 
     [SerializeField] private InputAction sInput;
     [SerializeField] private InputAction wInput;
@@ -105,7 +105,7 @@ public class PickUpController : MonoBehaviour
     {
         if (item == null) return;
         item.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        item.GetComponent<Rigidbody2D>().AddForceY(200);
+        item.GetComponent<Rigidbody2D>().AddForceY(400);
         pickedUpObject.GetComponent<IngredientController>().HideThrowGUI();
         pickedUpObject = null;
         droppedObject = item;

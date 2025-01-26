@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6848746388379350780}
   - component: {fileID: 5609890382322607872}
   m_Layer: 10
-  m_Name: 'Ingredient '
+  m_Name: Ingredient
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
