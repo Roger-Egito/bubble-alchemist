@@ -8,8 +8,6 @@ public class IngredientController : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>().sprite;
-
-        Debug.Log(sprite);
     }
 
     public bool CompareItems(IngredientController other)
