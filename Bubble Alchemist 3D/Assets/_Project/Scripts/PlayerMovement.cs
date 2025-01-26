@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 boxCastOrigin = new Vector2(feetCollision.bounds.center.x, feetCollision.bounds.min.y);
         Vector2 boxCastSize = new Vector2(feetCollision.bounds.size.x, groundDetectionRayLength);
 
-        groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, groundDetectionRayLength);
+        groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, groundDetectionRayLength, groundLayer);
 
         if (groundHit.collider != null)
         {

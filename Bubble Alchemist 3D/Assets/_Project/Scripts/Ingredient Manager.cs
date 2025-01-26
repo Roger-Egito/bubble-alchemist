@@ -7,10 +7,16 @@ public class IngredientManager : MonoBehaviour
 
     [SerializeField] private GameObject ingredientPrefab;
     [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private List<string> ingredientTypes;
     [SerializeField] private List<GameObject> spawnedIngredients;
     [Range(0f, 10f)]
     [SerializeField] private float spawnCooldown = 5f;
     private float timeStamp;
+
+    public string GetRandomIngredientType()
+    {
+        return ingredientTypes[UnityEngine.Random.Range(0, ingredientTypes.Count)]; ;
+    }
 
     private void Awake()
     {
