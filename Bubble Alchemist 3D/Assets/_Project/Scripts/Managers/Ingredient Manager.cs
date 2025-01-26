@@ -48,6 +48,7 @@ public class IngredientManager : MonoBehaviour
     public IngredientController GetRandomIngredient()
     {
         int n = Random.Range(0, spawnedIngredients.Count);
+        var s = spawnedIngredients[n].GetComponent<IngredientController>();
         return spawnedIngredients[n].GetComponent<IngredientController>();
     }
 

@@ -1434,7 +1434,19 @@ MonoBehaviour:
         m_CallState: 2
   OnDifficulyChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1492649555}
+        m_TargetAssemblyTypeName: BubblesEmitter, Assembly-CSharp
+        m_MethodName: UpdateDifficultu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   difficulty: 1
 --- !u!114 &538307568
 MonoBehaviour:
@@ -3008,6 +3020,7 @@ GameObject:
   - component: {fileID: 1073083758}
   - component: {fileID: 1073083760}
   - component: {fileID: 1073083759}
+  - component: {fileID: 1073083761}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -3135,6 +3148,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073083757}
   m_CullTransparentMesh: 1
+--- !u!114 &1073083761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073083757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b513937ec1e364c8162ab05571a1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1073083759}
+  texto: 'Life:'
 --- !u!1 &1120926734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,7 +3567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b5e58fc0656184ea3dc523919986b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  life: 5
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -3555,6 +3582,21 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1073083761}
+        m_TargetAssemblyTypeName: ScoreHandler, Assembly-CSharp
+        m_MethodName: UpdateScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   currentLife: 0
 --- !u!1 &1195316293
@@ -3861,8 +3903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -860.35, y: 635.43}
-  m_SizeDelta: {x: 839.299, y: 169.1422}
+  m_AnchoredPosition: {x: -815.2557, y: 635.43}
+  m_SizeDelta: {x: 929.4876, y: 169.1422}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1419519550
 MonoBehaviour:
@@ -3884,7 +3926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:
+  m_text: 'Score:0
 
 '
   m_isRightToLeft: 0
@@ -3951,7 +3993,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -7.680603, z: -0.6972656, w: -1.8892212}
+  m_margin: {x: 0, y: -7.680603, z: 0.538147, w: -1.8892212}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3978,6 +4020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 1419519550}
+  texto: 'Score:'
 --- !u!1 &1444360404
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class HealthHandler : MonoBehaviour
 {
     [SerializeField] private int life = 5;
     public UnityEvent OnDeath;
+    public UnityEvent<int> OnDamage;
 
     public int currentLife;
 
@@ -15,7 +16,8 @@ public class HealthHandler : MonoBehaviour
     public void TakeDamage()
     {
         currentLife--;
-        if(currentLife <= 0)
+        OnDamage?.Invoke(currentLife);
+        if (currentLife <= 0)
         {
             OnDeath?.Invoke();
         }

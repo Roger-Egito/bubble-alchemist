@@ -29,9 +29,11 @@ public class GameManager : MonoBehaviour
         return difficulty;
     }
 
-    public void IncreaseScore()
+    public void IncreaseScore(int news)
     {
-        score += scoreIncrease;
+        int a = (int)difficulty / 2;
+        if (a <= 0) a = 1;
+        score += news * a;
         if(score >= scoreThreshold)
         {
             scoreThreshold *= 2;

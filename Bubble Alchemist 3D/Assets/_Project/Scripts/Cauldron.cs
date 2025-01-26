@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class Cauldron : MonoBehaviour
 {
-    [SerializeField] private UnityEvent OnCorrectItem;
+    [SerializeField] private UnityEvent<int> OnCorrectItem;
     [SerializeField] private UnityEvent OnWrongItem;
     [SerializeField] private Image itemImage;
-
     public IngredientController currentItem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,7 +37,7 @@ public class Cauldron : MonoBehaviour
 
     public void CorrectItem()
     {
-        OnCorrectItem?.Invoke();
+        OnCorrectItem?.Invoke(5);
         GetNextItem();
     }
 

@@ -16,7 +16,13 @@ public class Stone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Familiar"))
-            Debug.Log("Acertou");
+        if (collision.CompareTag("Familiar"))
+        {
+            if(collision.TryGetComponent<HealthHandler>(out var h))
+            {
+                h.TakeDamage();
+            }
+        }
+ 
     }
 }
